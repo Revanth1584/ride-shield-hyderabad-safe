@@ -11,9 +11,19 @@ import CitizenReporting from '@/components/CitizenReporting';
 import AnalyticsDashboard from '@/components/AnalyticsDashboard';
 import OwnershipVerification from '@/components/OwnershipVerification';
 import IncentivesSection from '@/components/IncentivesSection';
+import SplashScreen from '@/components/SplashScreen';
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
+  const [showSplash, setShowSplash] = useState(true);
+
+  const handleSplashComplete = () => {
+    setShowSplash(false);
+  };
+
+  if (showSplash) {
+    return <SplashScreen onComplete={handleSplashComplete} />;
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
